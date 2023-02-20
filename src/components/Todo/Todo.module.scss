@@ -1,0 +1,78 @@
+.wrapper {
+  padding: 10px 5px;
+  background-color: black;
+}
+
+.job-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.input {
+  flex: 1;
+  max-width: 100%;
+  outline: none;
+  border: none;
+  line-height: 1.7rem;
+  font-size: 1.7rem;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding: 4px;
+  background-color: teal;
+  color: white;
+}
+
+.input::placeholder {
+  color: white;
+}
+
+.add-btn {
+  background-color: tomato;
+  width: 60px;
+  height: 30px;
+  font-size: 1.7rem;
+  border: none;
+  outline: none;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.jobs-wrapper {
+  overflow-y: scroll;
+  height: 378px;
+}
+
+.list-items {
+  display: block;
+  height: 200px;
+}
+
+.item-box {
+  width: 90%;
+  height: 40px;
+  background-color: brown;
+  margin: 10px 0;
+  text-decoration: none;
+  list-style: none;
+  line-height: 40px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+  margin-left: 15px;
+}
+
+.item {
+  overflow: hidden;
+  font-size: 1.8rem;
+  text-overflow: ellipsis;
+  color: white;
+}
+
+.done-btn {
+  background-color: steelblue;
+  border: none;
+  font-size: 1.7rem;
+  padding: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
