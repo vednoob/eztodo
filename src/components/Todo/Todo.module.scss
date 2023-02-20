@@ -11,13 +11,14 @@
 .input {
   flex: 1;
   max-width: 100%;
+  height: 40px;
   outline: none;
   border: none;
   line-height: 1.7rem;
   font-size: 1.7rem;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
-  padding: 4px;
+  padding: 4px 10px;
   background-color: teal;
   color: white;
 }
@@ -29,17 +30,24 @@
 .add-btn {
   background-color: tomato;
   width: 60px;
-  height: 30px;
+  height: 40px;
   font-size: 1.7rem;
   border: none;
-  outline: none;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
+  font-weight: 600;
+  color: white;
+
+  &:hover {
+    background-color: rgb(255, 161, 145);
+    cursor: pointer;
+  }
 }
 
 .jobs-wrapper {
   overflow-y: scroll;
   height: 378px;
+  margin-top: 10px;
 }
 
 .list-items {
@@ -64,8 +72,13 @@
 .item {
   overflow: hidden;
   font-size: 1.8rem;
-  text-overflow: ellipsis;
   color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
 }
 
 .done-btn {
@@ -75,4 +88,11 @@
   padding: 10px;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
+  font-weight: 600;
+  color: white;
+
+  &:hover {
+    background-color: rgb(126, 178, 221);
+    cursor: pointer;
+  }
 }

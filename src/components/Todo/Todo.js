@@ -6,17 +6,25 @@ const cx = classNames.bind(styles);
 
 function Todo() {
   const [job, setJob] = useState("");
-  const [jobs, setJobs] = useState([]);
+  const [jobs, setJobs] = useState(() => {
+    const jobsStorage = JSON.parse(localStorage.getItem("jobs"));
+    return jobsStorage ? jobsStorage : [];
+  });
 
   const inputRef = useRef();
 
   const handleSubmit = (job) => {
-    // unable submit with invalid info or space
+    // disable submit with invalid info or space
     if (job === "" || job.startsWith(" ")) {
       setJob("");
       return;
     }
-    setJobs((prev) => [...prev, job]);
+    setJobs((prev) => {
+      const newJobs = [...prev, job];
+      const jsonJobs = JSON.stringify(newJobs);
+      localStorage.setItem("jobs", jsonJobs);
+      return newJobs;
+    });
     setJob("");
     inputRef.current.focus();
   };
@@ -24,6 +32,7 @@ function Todo() {
   const handleDone = (index) => {
     const newJobs = [...jobs];
     newJobs.splice(index, 1);
+    localStorage.setItem("jobs", JSON.stringify(newJobs));
     setJobs(newJobs);
   };
 
@@ -51,19 +60,21 @@ function Todo() {
         </button>
       </div>
       <ul className={cx("jobs-wrapper")}>
-        {jobs.map((job, index) => (
-          <div className={cx("item-box")}>
-            <li className={cx("item")} key={index}>
-              {job}
-            </li>
-            <button
-              className={cx("done-btn")}
-              onClick={() => handleDone(index)}
-            >
-              Done
-            </button>
-          </div>
-        ))}
+        {jobs
+          .map((job, index) => (
+            <div className={cx("item-box")}>
+              <li className={cx("item")} key={index}>
+                {job}
+              </li>
+              <button
+                className={cx("done-btn")}
+                onClick={() => handleDone(index)}
+              >
+                Done
+              </button>
+            </div>
+          ))
+          .reverse()}
       </ul>
     </div>
   );
